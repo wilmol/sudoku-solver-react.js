@@ -1,8 +1,8 @@
 {
-  "name": "react-template",
+  "name": "sudoku-solver-react.js",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wilmol.github.io/react-template/",
+  "homepage": "https://wilmol.github.io/sudoku-solver-react.js/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
