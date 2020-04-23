@@ -22,20 +22,27 @@ class App extends Component {
   render() {
     const board = this.state.board;
     return (
-      <table>
-        <tbody>
-          {board.map((row, i) => {
-            return (
-              <tr key={i}>
-                {row.map((cell) => (
-                  <td>{cell === '.' ? '' : cell}</td>
-                ))}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div>
+        <table border="1">
+          <tbody>
+            {board.map((row, i) => {
+              return (
+                <tr key={i}>
+                  {row.map((cell) => (
+                    <td>{cell === '.' ? '' : cell}</td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <button onClick={() => this.solve()}>Solve</button>
+      </div>
     );
+  }
+
+  solve() {
+    console.log('Solving...');
   }
 }
 
