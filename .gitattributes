@@ -1,1 +1,21 @@
 * text=auto eol=lf
+
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.eot binary
+*.otf binary
+*.webp binary
+*.svg binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
+*.webm binary
+*.wav binary
+*.mp3 binary
+*.m4a binary
+*.aac binary
+*.oga binary
