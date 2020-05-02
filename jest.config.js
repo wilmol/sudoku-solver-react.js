@@ -5,4 +5,11 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
   },
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx}',
+    '!src/index.js',
+    '!src/serviceWorker.js',
+    '!src/setupTests.js',
+  ],
 };
