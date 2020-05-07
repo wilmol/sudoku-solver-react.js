@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/sudoku-solver-react.js/static/css/main.5f361e03.chunk.css",
-    "main.js": "/sudoku-solver-react.js/static/js/main.d329a379.chunk.js",
-    "main.js.map": "/sudoku-solver-react.js/static/js/main.d329a379.chunk.js.map",
-    "runtime-main.js": "/sudoku-solver-react.js/static/js/runtime-main.4d3c54a5.js",
-    "runtime-main.js.map": "/sudoku-solver-react.js/static/js/runtime-main.4d3c54a5.js.map",
-    "static/js/2.a8846461.chunk.js": "/sudoku-solver-react.js/static/js/2.a8846461.chunk.js",
-    "static/js/2.a8846461.chunk.js.map": "/sudoku-solver-react.js/static/js/2.a8846461.chunk.js.map",
+    "main.css": "/sudoku-solver-react.js/static/css/main.d1b05096.chunk.css",
+    "main.js": "/sudoku-solver-react.js/static/js/main.d49f850e.chunk.js",
+    "main.js.map": "/sudoku-solver-react.js/static/js/main.d49f850e.chunk.js.map",
+    "runtime-main.js": "/sudoku-solver-react.js/static/js/runtime-main.d1fd8bf3.js",
+    "runtime-main.js.map": "/sudoku-solver-react.js/static/js/runtime-main.d1fd8bf3.js.map",
+    "static/js/2.3d40befb.chunk.js": "/sudoku-solver-react.js/static/js/2.3d40befb.chunk.js",
+    "static/js/2.3d40befb.chunk.js.map": "/sudoku-solver-react.js/static/js/2.3d40befb.chunk.js.map",
     "index.html": "/sudoku-solver-react.js/index.html",
-    "precache-manifest.ddfb7fab7bdb3638a17aed0719ff244d.js": "/sudoku-solver-react.js/precache-manifest.ddfb7fab7bdb3638a17aed0719ff244d.js",
+    "precache-manifest.0cd4993856adb4ee11de57ffbc1f09ec.js": "/sudoku-solver-react.js/precache-manifest.0cd4993856adb4ee11de57ffbc1f09ec.js",
     "service-worker.js": "/sudoku-solver-react.js/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/sudoku-solver-react.js/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.a8846461.chunk.js.LICENSE.txt": "/sudoku-solver-react.js/static/js/2.a8846461.chunk.js.LICENSE.txt"
+    "static/css/main.d1b05096.chunk.css.map": "/sudoku-solver-react.js/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.3d40befb.chunk.js.LICENSE.txt": "/sudoku-solver-react.js/static/js/2.3d40befb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4d3c54a5.js",
-    "static/js/2.a8846461.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.d329a379.chunk.js"
+    "static/js/runtime-main.d1fd8bf3.js",
+    "static/js/2.3d40befb.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.d49f850e.chunk.js"
   ]
 }
