@@ -2,6 +2,7 @@
   "name": "sudoku-solver-react.js",
   "version": "0.1.0",
   "private": true,
+  "license": "Apache-2.0",
   "homepage": "https://wilmol.github.io/sudoku-solver-react.js/",
   "scripts": {
     "start": "react-scripts start",
