@@ -25,3 +25,22 @@
 .Cell-initiallySet-true {
   font-weight: bold;
 }
+
+.ButtonWrapper {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Button {
+  border: 3px solid black;
+  background: white;
+  font-size: 16pt;
+  text-align: center;
+  border-spacing: 0;
+  width: 162px;
+  height: 50px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
