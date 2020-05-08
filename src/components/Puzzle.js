@@ -886,7 +886,7 @@ export const randomPuzzle = () => {
 // [low, high]
 const random = (low, high) => Math.floor(Math.random() * (high - low + 1) + low);
 
-const decodePuzzle = (encodedPuzzle) =>
+export const decodePuzzle = (encodedPuzzle) =>
   encodedPuzzle.match(/.{9}/g).map((rowString) =>
     rowString
       .split('')
@@ -899,3 +899,5 @@ const decodePuzzle = (encodedPuzzle) =>
         };
       })
   );
+
+export const allPuzzles = () => [easyPuzzles, mediumPuzzles, hardPuzzles].flatMap((a) => a);
