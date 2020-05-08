@@ -1,4 +1,5 @@
 import React from 'react';
+import Cell from './Cell';
 
 const Board = ({ board }) => {
   return (
@@ -8,7 +9,7 @@ const Board = ({ board }) => {
           return (
             <tr key={i}>
               {row.map((cell, j) => (
-                <td key={`${i}-${j}`}>{cell === 0 ? '' : cell}</td>
+                <Cell key={`${i}-${j}`} value={cell} />
               ))}
             </tr>
           );
