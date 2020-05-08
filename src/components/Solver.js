@@ -1,4 +1,4 @@
-export async function solve(board, setBoard) {
+export const solve = async (board, setBoard) => {
   await sleep();
   const boardCopy = [...board];
   for (let row = 0; row < 9; row++) {
@@ -28,9 +28,9 @@ export async function solve(board, setBoard) {
   }
   // all cells filled
   return true;
-}
+};
 
-function isValidMove(board, row, col, num) {
+const isValidMove = (board, row, col, num) => {
   for (let i = 0; i < 9; i++) {
     // check row
     if (board[i][col].value === num) {
@@ -49,8 +49,6 @@ function isValidMove(board, row, col, num) {
     }
   }
   return true;
-}
+};
 
-function sleep() {
-  return new Promise((resolve) => setTimeout(resolve, 0));
-}
+const sleep = () => new Promise((resolve) => setTimeout(resolve, 0));
