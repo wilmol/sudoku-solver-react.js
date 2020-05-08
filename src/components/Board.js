@@ -3,7 +3,7 @@ import Cell from './Cell';
 
 const Board = ({ board }) => {
   return (
-    <table border="1">
+    <table className="Board">
       <tbody>
         {board.map((row, i) => {
           return (
