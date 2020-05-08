@@ -9,7 +9,7 @@ const Board = ({ board }) => {
           return (
             <tr key={i}>
               {row.map((cell, j) => (
-                <Cell key={`${i}-${j}`} value={cell} />
+                <Cell key={`${i}-${j}`} row={i} col={j} value={cell} />
               ))}
             </tr>
           );
