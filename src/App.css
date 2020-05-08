@@ -1,23 +1,27 @@
 .Board {
-  border: 3px solid #000000;
+  border: 3px solid black;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 24pt;
-  text-align: center;
   border-spacing: 0;
 }
 
 .Cell {
-  border: 1px solid #000000;
+  border: 1px solid black;
   width: 50px;
   height: 50px;
+  font-size: 24pt;
+  text-align: center;
 }
 
-.Cell-row2, .Cell-row5 {
-  border-bottom: 3px solid #000000;
+.Cell-row-2, .Cell-row-5 {
+  border-bottom: 3px solid black;
 }
 
-.Cell-col2, .Cell-col5 {
-  border-right: 3px solid #000000;
+.Cell-col-2, .Cell-col-5 {
+  border-right: 3px solid black;
+}
+
+.Cell-initiallySet-true {
+  font-weight: bold;
 }
