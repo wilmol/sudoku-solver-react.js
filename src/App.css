@@ -26,6 +26,10 @@
   font-weight: bold;
 }
 
+.Cell-isHover-true {
+  background: #7f7f7f;
+}
+
 .ButtonDiv {
   margin-top: 20px;
   display: flex;
