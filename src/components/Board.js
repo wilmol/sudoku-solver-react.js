@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Cell from './Cell';
 
 const Board = ({ board }) => {
+  const [hover, setHover] = useState({ row: -1, col: -1 });
+
   return (
     <table className="Board">
       <tbody>
@@ -15,6 +17,8 @@ const Board = ({ board }) => {
                   col={j}
                   value={cell.value}
                   initiallySet={cell.initiallySet}
+                  hover={hover}
+                  setHover={setHover}
                 />
               ))}
             </tr>
