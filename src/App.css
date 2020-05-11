@@ -22,12 +22,16 @@
   border-right: 3px solid black;
 }
 
-.Cell-initiallySet-true {
+.Cell-initiallySet {
   font-weight: bold;
 }
 
-.Cell-isHover-true {
-  background: #7f7f7f;
+.Cell-hover {
+  background: #999999;
+}
+
+.Cell-neighbourHover {
+  background: #dfdfdf;
 }
 
 .ButtonDiv {
