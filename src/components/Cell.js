@@ -24,6 +24,7 @@ const Cell = ({ row, col, value, initiallySet, hover, setHover, updateCell, disa
       value={value === 0 ? '' : value}
       onChange={(e) => updateCell(row, col, e.target.value)}
       readOnly={disabled}
+      maxLength={1}
     />
   );
 };

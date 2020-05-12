@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { solve } from './Solver';
+import { isValidMove, solve } from './Solver';
 import Board from './Board';
 import { emptyPuzzle, firstPuzzle, randomPuzzle } from './Puzzle';
 import Button from './Button';
@@ -17,8 +17,17 @@ const SudokuSolver = () => {
     setBoard(copy(unsolvedBoard));
   };
 
+  // called when user inputs a cells value
   const updateCell = (row, col, val) => {
-    // used when user inputs a cells value
+    val = !val ? 0 : parseInt(val);
+    if (isNaN(val) || val > 9 || val < 0) {
+      console.log(`(invalid value) board[${row}][${col}] = ${val}`);
+      return;
+    }
+    if (val > 0 && !isValidMove(board, row, col, val)) {
+      console.log(`(invalidates puzzle) board[${row}][${col}] = ${val}`);
+      return;
+    }
     console.log(`board[${row}][${col}] = ${val}`);
     const boardCopy = copy(board);
     boardCopy[row][col].value = parseInt(val);
