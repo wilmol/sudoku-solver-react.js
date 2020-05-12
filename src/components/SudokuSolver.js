@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { solve } from './Solver';
 import Board from './Board';
-import { firstPuzzle, randomPuzzle } from './Puzzle';
+import { emptyPuzzle, firstPuzzle, randomPuzzle } from './Puzzle';
 import Button from './Button';
 
 let initialBoard = firstPuzzle();
@@ -44,6 +44,18 @@ const SudokuSolver = () => {
             initialBoard = randomPuzzle();
             setBoard(copy(initialBoard));
             console.log('Randomised board.');
+          }}
+          disabled={buttonsDisabled}
+        />
+      </div>
+      <div className="ButtonDiv">
+        <Button
+          text="Clear"
+          onClick={() => {
+            console.log('Clearing board...');
+            initialBoard = emptyPuzzle();
+            setBoard(copy(initialBoard));
+            console.log('Cleared board.');
           }}
           disabled={buttonsDisabled}
         />
