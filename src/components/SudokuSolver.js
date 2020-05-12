@@ -19,8 +19,9 @@ const SudokuSolver = () => {
 
   const updateCell = (row, col, val) => {
     // used when user inputs a cells value
+    console.log(`board[${row}][${col}] = ${val}`);
     const boardCopy = copy(board);
-    boardCopy[row][col].value = val;
+    boardCopy[row][col].value = parseInt(val);
     boardCopy[row][col].initiallySet = true;
     updateBoard(boardCopy);
   };

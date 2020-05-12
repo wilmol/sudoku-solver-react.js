@@ -17,15 +17,13 @@ const Cell = ({ row, col, value, initiallySet, hover, setHover, updateCell }) =>
   }
 
   return (
-    <td
+    <input
       className={className}
       onMouseEnter={() => setHover({ row: row, col: col })}
       onMouseLeave={() => setHover({ row: -1, col: -1 })}
-      onClick={() => updateCell(row, col, 9)}
-      onChange={() => updateCell(row, col, value)}
-    >
-      {value === 0 ? '' : value}
-    </td>
+      value={value === 0 ? '' : value}
+      onChange={(e) => updateCell(row, col, e.target.value)}
+    />
   );
 };
 
