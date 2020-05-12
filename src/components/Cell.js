@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cell = ({ row, col, value, initiallySet, hover, setHover }) => {
+const Cell = ({ row, col, value, initiallySet, hover, setHover, updateCell }) => {
   let className = `Cell Cell-row-${row} Cell-col-${col}`;
   if (initiallySet) {
     className += ' Cell-initiallySet';
@@ -18,9 +18,11 @@ const Cell = ({ row, col, value, initiallySet, hover, setHover }) => {
 
   return (
     <td
+      className={className}
       onMouseEnter={() => setHover({ row: row, col: col })}
       onMouseLeave={() => setHover({ row: -1, col: -1 })}
-      className={className}
+      onClick={() => updateCell(row, col, 9)}
+      onChange={() => updateCell(row, col, value)}
     >
       {value === 0 ? '' : value}
     </td>
