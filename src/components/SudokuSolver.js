@@ -19,9 +19,10 @@ const SudokuSolver = () => {
 
   // called when user inputs a cells value
   const updateCell = (row, col, val) => {
+    const dirtyVal = val;
     val = !val ? 0 : parseInt(val);
     if (isNaN(val) || val > 9 || val < 0) {
-      console.log(`(invalid value) board[${row}][${col}] = ${val}`);
+      console.log(`(invalid value) board[${row}][${col}] = ${dirtyVal}`);
       return;
     }
     if (val > 0 && !isValidMove(board, row, col, val)) {
@@ -31,7 +32,7 @@ const SudokuSolver = () => {
     console.log(`board[${row}][${col}] = ${val}`);
     const boardCopy = copy(board);
     boardCopy[row][col].value = parseInt(val);
-    boardCopy[row][col].initiallySet = true;
+    boardCopy[row][col].initiallySet = val > 0;
     updateBoard(boardCopy);
   };
 
