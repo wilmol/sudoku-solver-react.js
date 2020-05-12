@@ -20,7 +20,7 @@ const SudokuSolver = () => {
   const resetButton = () => {
     console.log('Resetting board...');
     const resetBoard = board.map((row) =>
-      row.map((col) => (col.initiallySet === true ? col : { value: 0, initiallySet: false }))
+      row.map((col) => (col.initiallySet ? col : { value: 0, initiallySet: false }))
     );
     setBoard(resetBoard);
     console.log('Reset board.');
