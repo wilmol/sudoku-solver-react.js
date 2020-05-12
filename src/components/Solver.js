@@ -30,7 +30,7 @@ export const solve = async (board, setBoard) => {
   return true;
 };
 
-const isValidMove = (board, row, col, num) => {
+export const isValidMove = (board, row, col, num) => {
   for (let i = 0; i < 9; i++) {
     // check row
     if (board[i][col].value === num) {

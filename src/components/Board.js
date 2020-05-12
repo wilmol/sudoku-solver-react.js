@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Cell from './Cell';
 
-const Board = ({ board }) => {
+const Board = ({ board, setBoard, updateCell, cellsDisabled }) => {
   const [hover, setHover] = useState({ row: -1, col: -1 });
 
   return (
@@ -19,6 +19,10 @@ const Board = ({ board }) => {
                   initiallySet={cell.initiallySet}
                   hover={hover}
                   setHover={setHover}
+                  updateCell={updateCell}
+                  board={board}
+                  setBoard={setBoard}
+                  disabled={cellsDisabled}
                 />
               ))}
             </tr>

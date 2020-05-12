@@ -1,52 +1,51 @@
 import React, { useState } from 'react';
 import { solve } from './Solver';
 import Board from './Board';
-import { firstPuzzle, randomPuzzle } from './Puzzle';
+import { emptyPuzzle, firstPuzzle, randomPuzzle } from './Puzzle';
 import Button from './Button';
 
-let initialBoard = firstPuzzle();
-
-const copy = (obj) => JSON.parse(JSON.stringify(obj));
-
 const SudokuSolver = () => {
-  const [board, setBoard] = useState(copy(initialBoard));
-  const [buttonsDisabled, setButtonsDisabled] = useState(false);
+  const [board, setBoard] = useState(firstPuzzle());
+  const [interactionsDisabled, setInteractionsDisabled] = useState(false);
+
+  const solveButton = () => {
+    console.log('Solving board...');
+    setInteractionsDisabled(true);
+    solve(board, setBoard).then((b) => {
+      console.log(b ? 'Solved board.' : 'Unsolveable board.');
+      setInteractionsDisabled(false);
+    });
+  };
+
+  const resetButton = () => {
+    console.log('Resetting board...');
+    const resetBoard = board.map((row) =>
+      row.map((cell) => (cell.initiallySet ? cell : { value: 0, initiallySet: false }))
+    );
+    setBoard(resetBoard);
+    console.log('Reset board.');
+  };
+
+  const clearButton = () => {
+    console.log('Clearing board...');
+    setBoard(emptyPuzzle());
+    console.log('Cleared board.');
+  };
+
+  const randomButton = () => {
+    console.log('Randomising board...');
+    setBoard(randomPuzzle());
+    console.log('Randomised board.');
+  };
 
   return (
     <div>
-      <Board board={board} />
+      <Board board={board} setBoard={setBoard} cellsDisabled={interactionsDisabled} />
       <div className="ButtonDiv">
-        <Button
-          text="Solve"
-          onClick={() => {
-            console.log('Solving board...');
-            setButtonsDisabled(true);
-            solve(board, setBoard).then((b) => {
-              console.log(b ? 'Solved board.' : 'Unsolveable board.');
-              setButtonsDisabled(false);
-            });
-          }}
-          disabled={buttonsDisabled}
-        />
-        <Button
-          text="Reset"
-          onClick={() => {
-            console.log('Resetting board...');
-            setBoard(copy(initialBoard));
-            console.log('Reset board.');
-          }}
-          disabled={buttonsDisabled}
-        />
-        <Button
-          text="Random"
-          onClick={() => {
-            console.log('Randomising board...');
-            initialBoard = randomPuzzle();
-            setBoard(copy(initialBoard));
-            console.log('Randomised board.');
-          }}
-          disabled={buttonsDisabled}
-        />
+        <Button text="Solve" onClick={solveButton} disabled={interactionsDisabled} />
+        <Button text="Reset" onClick={resetButton} disabled={interactionsDisabled} />
+        <Button text="Clear" onClick={clearButton} disabled={interactionsDisabled} />
+        <Button text="Random" onClick={randomButton} disabled={interactionsDisabled} />
       </div>
     </div>
   );
