@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cell = ({ row, col, value, initiallySet, hover, setHover, updateCell }) => {
+const Cell = ({ row, col, value, initiallySet, hover, setHover, updateCell, disabled }) => {
   let className = `Cell Cell-row-${row} Cell-col-${col}`;
   if (initiallySet) {
     className += ' Cell-initiallySet';
@@ -23,6 +23,7 @@ const Cell = ({ row, col, value, initiallySet, hover, setHover, updateCell }) =>
       onMouseLeave={() => setHover({ row: -1, col: -1 })}
       value={value === 0 ? '' : value}
       onChange={(e) => updateCell(row, col, e.target.value)}
+      readOnly={disabled}
     />
   );
 };

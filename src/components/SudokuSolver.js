@@ -9,7 +9,7 @@ let unsolvedBoard = firstPuzzle();
 
 const SudokuSolver = () => {
   const [board, setBoard] = useState(copy(unsolvedBoard));
-  const [buttonsDisabled, setButtonsDisabled] = useState(false);
+  const [interactionsDisabled, setButtonsDisabled] = useState(false);
 
   const updateBoard = (newBoard) => {
     // update unsolvedBoard for the reset button
@@ -28,7 +28,7 @@ const SudokuSolver = () => {
 
   return (
     <div>
-      <Board board={board} updateCell={updateCell} />
+      <Board board={board} updateCell={updateCell} cellsDisabled={interactionsDisabled} />
       <div className="ButtonDiv">
         <Button
           text="Solve"
@@ -40,7 +40,7 @@ const SudokuSolver = () => {
               setButtonsDisabled(false);
             });
           }}
-          disabled={buttonsDisabled}
+          disabled={interactionsDisabled}
         />
         <Button
           text="Reset"
@@ -49,7 +49,7 @@ const SudokuSolver = () => {
             setBoard(copy(unsolvedBoard));
             console.log('Reset board.');
           }}
-          disabled={buttonsDisabled}
+          disabled={interactionsDisabled}
         />
         <Button
           text="Clear"
@@ -58,7 +58,7 @@ const SudokuSolver = () => {
             updateBoard(emptyPuzzle());
             console.log('Cleared board.');
           }}
-          disabled={buttonsDisabled}
+          disabled={interactionsDisabled}
         />
         <Button
           text="Random"
@@ -67,7 +67,7 @@ const SudokuSolver = () => {
             updateBoard(randomPuzzle());
             console.log('Randomised board.');
           }}
-          disabled={buttonsDisabled}
+          disabled={interactionsDisabled}
         />
       </div>
     </div>
