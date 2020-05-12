@@ -52,22 +52,20 @@ const SudokuSolver = () => {
           disabled={buttonsDisabled}
         />
         <Button
-          text="Random"
-          onClick={() => {
-            console.log('Randomising board...');
-            updateBoard(randomPuzzle());
-            console.log('Randomised board.');
-          }}
-          disabled={buttonsDisabled}
-        />
-      </div>
-      <div className="ButtonDiv">
-        <Button
           text="Clear"
           onClick={() => {
             console.log('Clearing board...');
             updateBoard(emptyPuzzle());
             console.log('Cleared board.');
+          }}
+          disabled={buttonsDisabled}
+        />
+        <Button
+          text="Random"
+          onClick={() => {
+            console.log('Randomising board...');
+            updateBoard(randomPuzzle());
+            console.log('Randomised board.');
           }}
           disabled={buttonsDisabled}
         />
