@@ -21,3 +21,5 @@
 *.m4a binary
 *.aac binary
 *.oga binary
+*.pdf binary
+*.zip binary
