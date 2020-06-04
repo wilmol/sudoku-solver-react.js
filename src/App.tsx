@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import SudokuSolver from './components/SudokuSolver';
 
-const App = () => {
+const App: React.FC = () => {
   return <SudokuSolver />;
 };
 
