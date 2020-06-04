@@ -11,8 +11,8 @@ const SudokuSolver: React.FC = () => {
   const solveButton = (): void => {
     console.log('Solving board...');
     setInteractionsDisabled(true);
-    solve(board, setBoard).then((b: boolean) => {
-      console.log(b ? 'Solved board.' : 'Unsolveable board.');
+    solve(board, setBoard).then((solved: boolean) => {
+      console.log(solved ? 'Solved board.' : 'Unsolveable board.');
       setInteractionsDisabled(false);
     });
   };

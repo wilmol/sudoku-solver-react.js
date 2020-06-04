@@ -1,16 +1,15 @@
 import { easyPuzzles } from './EasyPuzzles';
 import { mediumPuzzles } from './MediumPuzzles';
 import { hardPuzzles } from './HardPuzzles';
+import { BoardState } from './Board';
 
 const puzzles = [easyPuzzles, mediumPuzzles, hardPuzzles];
 
-export const emptyPuzzle = (): { value: number; initiallySet: boolean }[][] =>
-  decodePuzzle('0'.repeat(81));
+export const emptyPuzzle = (): BoardState => decodePuzzle('0'.repeat(81));
 
-export const firstPuzzle = (): { value: number; initiallySet: boolean }[][] =>
-  decodePuzzle(puzzles[0][0]);
+export const firstPuzzle = (): BoardState => decodePuzzle(puzzles[0][0]);
 
-export const randomPuzzle = (): { value: number; initiallySet: boolean }[][] => {
+export const randomPuzzle = (): BoardState => {
   const difficulty = random(0, 2);
   console.log(`Difficulty: ${difficulty}`);
   const boardArray = puzzles[difficulty];
@@ -23,7 +22,7 @@ export const randomPuzzle = (): { value: number; initiallySet: boolean }[][] => 
 const random = (low: number, high: number): number =>
   Math.floor(Math.random() * (high - low + 1) + low);
 
-export const decodePuzzle = (encodedPuzzle: string): { value: number; initiallySet: boolean }[][] =>
+export const decodePuzzle = (encodedPuzzle: string): BoardState =>
   encodedPuzzle.match(/.{9}/g)!.map((rowString) =>
     rowString
       .split('')
@@ -37,5 +36,4 @@ export const decodePuzzle = (encodedPuzzle: string): { value: number; initiallyS
       })
   );
 
-export const allPuzzles = (): string[] =>
-  [easyPuzzles, mediumPuzzles, hardPuzzles].flatMap((a) => a);
+export const allPuzzles = (): string[] => [easyPuzzles, mediumPuzzles, hardPuzzles].flat();

@@ -1,8 +1,9 @@
 import React from 'react';
+import { BoardState } from './Board';
 
 export const solve = async (
-  board: { value: number; initiallySet: boolean }[][],
-  setBoard: React.Dispatch<React.SetStateAction<{ value: number; initiallySet: boolean }[][]>>
+  board: BoardState,
+  setBoard: React.Dispatch<React.SetStateAction<BoardState>>
 ): Promise<boolean> => {
   await sleep();
   const boardCopy = [...board];
@@ -35,12 +36,7 @@ export const solve = async (
   return true;
 };
 
-export const isValidMove = (
-  board: { value: number; initiallySet: boolean }[][],
-  row: number,
-  col: number,
-  num: number
-): boolean => {
+export const isValidMove = (board: BoardState, row: number, col: number, num: number): boolean => {
   for (let i = 0; i < 9; i++) {
     // check row
     if (board[i][col].value === num) {

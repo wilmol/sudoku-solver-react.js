@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface ButtonProps {
+type ButtonProps = {
   text: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   disabled: boolean;
-}
+};
 
 const Button: React.FC<ButtonProps> = ({ text, onClick, disabled }) => {
   return (

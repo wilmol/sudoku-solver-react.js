@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import Cell from './Cell';
 
-interface BoardProps {
-  board: { value: number; initiallySet: boolean }[][];
-  setBoard: React.Dispatch<React.SetStateAction<{ value: number; initiallySet: boolean }[][]>>;
+export type BoardState = {
+  value: number;
+  initiallySet: boolean;
+}[][];
+
+type BoardProps = {
+  board: BoardState;
+  setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
   cellsDisabled: boolean;
-}
+};
 
 const Board: React.FC<BoardProps> = ({ board, setBoard, cellsDisabled }) => {
   const [hover, setHover] = useState({ row: -1, col: -1 });

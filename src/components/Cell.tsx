@@ -1,40 +1,23 @@
 import React from 'react';
 import { isValidMove } from './Solver';
+import { BoardState } from './Board';
 
-const getClassName = (
-  row: number,
-  col: number,
-  initiallySet: boolean,
-  hover: { row: number; col: number }
-): string => {
-  let className = `Cell Cell-row-${row} Cell-col-${col}`;
-  if (initiallySet) {
-    className += ' Cell-initiallySet';
-  }
-  if (hover.row === row && hover.col === col) {
-    className += ' Cell-hover';
-  } else if (
-    hover.row === row ||
-    hover.col === col ||
-    (Math.floor(hover.row / 3) === Math.floor(row / 3) &&
-      Math.floor(hover.col / 3) === Math.floor(col / 3))
-  ) {
-    className += ' Cell-neighbourHover';
-  }
-  return className;
+type HoverState = {
+  row: number;
+  col: number;
 };
 
-interface CellProps {
+type CellProps = {
   row: number;
   col: number;
   value: number;
   initiallySet: boolean;
-  hover: { row: number; col: number };
-  setHover: React.Dispatch<React.SetStateAction<{ row: number; col: number }>>;
-  board: { value: number; initiallySet: boolean }[][];
-  setBoard: React.Dispatch<React.SetStateAction<{ value: number; initiallySet: boolean }[][]>>;
+  hover: HoverState;
+  setHover: React.Dispatch<React.SetStateAction<HoverState>>;
+  board: BoardState;
+  setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
   disabled: boolean;
-}
+};
 
 const Cell: React.FC<CellProps> = ({
   row,
@@ -47,6 +30,29 @@ const Cell: React.FC<CellProps> = ({
   setBoard,
   disabled,
 }) => {
+  const getClassName = (
+    row: number,
+    col: number,
+    initiallySet: boolean,
+    hover: HoverState
+  ): string => {
+    let className = `Cell Cell-row-${row} Cell-col-${col}`;
+    if (initiallySet) {
+      className += ' Cell-initiallySet';
+    }
+    if (hover.row === row && hover.col === col) {
+      className += ' Cell-hover';
+    } else if (
+      hover.row === row ||
+      hover.col === col ||
+      (Math.floor(hover.row / 3) === Math.floor(row / 3) &&
+        Math.floor(hover.col / 3) === Math.floor(col / 3))
+    ) {
+      className += ' Cell-neighbourHover';
+    }
+    return className;
+  };
+
   const updateCell = (row: number, col: number, val: string): void => {
     // convert to int as that is what solvers expect
     const intVal = !val ? 0 : parseInt(val);
