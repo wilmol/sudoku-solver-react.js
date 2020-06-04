@@ -1,4 +1,10 @@
-export const solve = async (board, setBoard) => {
+import React from 'react';
+import { BoardState } from './Board';
+
+export const solve = async (
+  board: BoardState,
+  setBoard: React.Dispatch<React.SetStateAction<BoardState>>
+): Promise<boolean> => {
   await sleep();
   const boardCopy = [...board];
   for (let row = 0; row < 9; row++) {
@@ -30,7 +36,7 @@ export const solve = async (board, setBoard) => {
   return true;
 };
 
-export const isValidMove = (board, row, col, num) => {
+export const isValidMove = (board: BoardState, row: number, col: number, num: number): boolean => {
   for (let i = 0; i < 9; i++) {
     // check row
     if (board[i][col].value === num) {
@@ -51,4 +57,4 @@ export const isValidMove = (board, row, col, num) => {
   return true;
 };
 
-const sleep = () => new Promise((resolve) => setTimeout(resolve, 0));
+const sleep = (): Promise<void> => new Promise((resolve) => setTimeout(resolve, 0));
