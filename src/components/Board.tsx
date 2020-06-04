@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import Cell from './Cell';
 
-const Board = ({ board, setBoard, updateCell, cellsDisabled }) => {
+interface BoardProps {
+  board: { value: number; initiallySet: boolean }[][];
+  setBoard: React.Dispatch<React.SetStateAction<{ value: number; initiallySet: boolean }[][]>>;
+  cellsDisabled: boolean;
+}
+
+const Board: React.FC<BoardProps> = ({ board, setBoard, cellsDisabled }) => {
   const [hover, setHover] = useState({ row: -1, col: -1 });
 
   return (
@@ -19,7 +25,6 @@ const Board = ({ board, setBoard, updateCell, cellsDisabled }) => {
                   initiallySet={cell.initiallySet}
                   hover={hover}
                   setHover={setHover}
-                  updateCell={updateCell}
                   board={board}
                   setBoard={setBoard}
                   disabled={cellsDisabled}

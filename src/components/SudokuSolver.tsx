@@ -4,20 +4,20 @@ import Board from './Board';
 import { emptyPuzzle, firstPuzzle, randomPuzzle } from './Puzzle';
 import Button from './Button';
 
-const SudokuSolver = () => {
+const SudokuSolver: React.FC = () => {
   const [board, setBoard] = useState(firstPuzzle());
   const [interactionsDisabled, setInteractionsDisabled] = useState(false);
 
-  const solveButton = () => {
+  const solveButton = (): void => {
     console.log('Solving board...');
     setInteractionsDisabled(true);
-    solve(board, setBoard).then((b) => {
+    solve(board, setBoard).then((b: boolean) => {
       console.log(b ? 'Solved board.' : 'Unsolveable board.');
       setInteractionsDisabled(false);
     });
   };
 
-  const resetButton = () => {
+  const resetButton = (): void => {
     console.log('Resetting board...');
     const resetBoard = board.map((row) =>
       row.map((cell) => (cell.initiallySet ? cell : { value: 0, initiallySet: false }))
@@ -26,13 +26,13 @@ const SudokuSolver = () => {
     console.log('Reset board.');
   };
 
-  const clearButton = () => {
+  const clearButton = (): void => {
     console.log('Clearing board...');
     setBoard(emptyPuzzle());
     console.log('Cleared board.');
   };
 
-  const randomButton = () => {
+  const randomButton = (): void => {
     console.log('Randomising board...');
     setBoard(randomPuzzle());
     console.log('Randomised board.');
