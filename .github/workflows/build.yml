@@ -22,7 +22,7 @@ jobs:
 
       - name: Restore cache
         id: npm-cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ./node_modules
           key: ${{ runner.os }}-npm-cache-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
@@ -66,7 +66,7 @@ jobs:
 
       - name: Restore cache
         id: npm-cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ./node_modules
           key: ${{ runner.os }}-npm-cache-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
