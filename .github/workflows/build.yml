@@ -44,13 +44,14 @@ jobs:
         run: npm run test
 
       - name: Upload coverage to Codecov
+        if: matrix.os == 'ubuntu-latest'
         uses: codecov/codecov-action@v1.0.10
         with:
           name: codecov-build
           fail_ci_if_error: true
 
       - name: Upload build artifact
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@master
         with:
           name: build
@@ -90,7 +91,7 @@ jobs:
 
   automerge-dependencies:
     needs: build
-    if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]' && contains(github.event.pull_request.labels.*.name, 'dependencies')
+    if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Approve
