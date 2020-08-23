@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://wilmol.github.io/sudoku-solver-react.js/",
   "repository": "github:wilmol/sudoku-solver-react.js",
-  "license": "Apache-2.0",
+  "license": "GPL-2.0",
   "scripts": {
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
