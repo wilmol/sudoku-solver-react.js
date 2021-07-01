@@ -45,7 +45,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         if: matrix.os == 'ubuntu-latest'
-        uses: codecov/codecov-action@v1.0.13
+        uses: codecov/codecov-action@v1.5.2
         with:
           name: codecov-build
           fail_ci_if_error: true
